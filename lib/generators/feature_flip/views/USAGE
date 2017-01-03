@@ -1,0 +1,8 @@
+Description:
+    Generates feature_flip/features/index view template.
+
+Example:
+    rails generate feature_flip:views
+
+    This will create:
+        app/views/feature_flip/features/index.html.erb

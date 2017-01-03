@@ -1,0 +1,70 @@
+/* feature-flip */
+
+.feature-flip {
+  margin: 0;
+}
+
+.feature-flip h1 {
+  color:#666666;
+  font-size: 229%;
+  line-height: 44.928px;
+  margin: 13.5px 0;
+}
+
+.feature-flip th.name, .feature-flip th.description, .feature-flip th.status {
+  visibility: hidden;
+}
+
+.feature-flip td.name {
+  font-family: Monaco, sans-serif;
+  font-weight: bold;
+}
+
+.feature-flip td.name, .feature-flip td.description {
+  vertical-align: top;
+}
+
+.feature-flip th {
+  font-weight: normal;
+  text-align: left;
+  vertical-align: top;
+}
+
+.feature-flip th .description {
+  font-weight: normal;
+  display: block;
+  font-size: 80%;
+}
+
+.feature-flip th, .feature-flip td {
+  padding: 5px 10px;
+  width: 160px;
+  height: 40px;
+}
+
+.feature-flip td.off, .feature-flip td.on, .feature-flip td.pass {
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.feature-flip td.off {
+  background-color: #fbb;
+}
+
+.feature-flip td.on {
+  background-color: #cfc;
+}
+
+.feature-flip td.pass {
+  background-color: #eef;
+}
+
+.feature-flip form {
+  display: inline;
+}
+
+.feature-flip form input[type=submit] {
+  font-size: 80%;
+  padding: 2px 5px;
+  margin: 0;
+}

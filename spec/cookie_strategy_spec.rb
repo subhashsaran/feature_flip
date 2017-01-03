@@ -6,7 +6,7 @@ class ControllerWithCookieStrategy
   def self.before_action(_); end
   def self.after_action(_); end
   def cookies; []; end
-  include Flip::CookieStrategy::Loader
+  include FeatureFlip::CookieStrategy::Loader
 end
 
 module MockRails
@@ -32,8 +32,8 @@ module MockRails
   end
 end
 
-describe Flip::CookieStrategy do
-  let(:strategy) { Flip::CookieStrategy.new }
+describe FeatureFlip::CookieStrategy do
+  let(:strategy) { FeatureFlip::CookieStrategy.new }
   let(:cookies) do
     MockRails.cookie(
       strategy.cookie_name(:one) => "true",
@@ -42,7 +42,7 @@ describe Flip::CookieStrategy do
   end
 
   before do
-    Flip::CookieStrategy.cookies = cookies
+    FeatureFlip::CookieStrategy.cookies = cookies
   end
 
   its(:description) { should be_present }
@@ -94,18 +94,18 @@ describe Flip::CookieStrategy do
 
 end
 
-describe Flip::CookieStrategy::Loader do
+describe FeatureFlip::CookieStrategy::Loader do
 
   it "adds filters when included in controller" do
     ControllerWithoutCookieStrategy.tap do |klass|
       expect(klass).to receive(:before_action).with(:flip_cookie_strategy_before)
       expect(klass).to receive(:after_action).with(:flip_cookie_strategy_after)
-      klass.send :include, Flip::CookieStrategy::Loader
+      klass.send :include, FeatureFlip::CookieStrategy::Loader
     end
   end
 
   describe "filter methods" do
-    let(:strategy) { Flip::CookieStrategy.new }
+    let(:strategy) { FeatureFlip::CookieStrategy.new }
     let(:controller) { ControllerWithCookieStrategy.new }
     describe "#flip_cookie_strategy_before" do
       it "passes controller cookies to CookieStrategy" do
@@ -119,7 +119,7 @@ describe Flip::CookieStrategy::Loader do
     end
     describe "#flip_cookie_strategy_after" do
       before do
-        Flip::CookieStrategy.cookies = MockRails.cookie(strategy.cookie_name(:test) => "true")
+        FeatureFlip::CookieStrategy.cookies = MockRails.cookie(strategy.cookie_name(:test) => "true")
       end
       it "passes controller cookies to CookieStrategy" do
         expect {

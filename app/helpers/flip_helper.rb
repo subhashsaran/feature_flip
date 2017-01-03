@@ -1,9 +1,9 @@
 # Access to feature-flipping configuration.
-module FlipHelper
+module FeatureFlipHelper
 
   # Whether the given feature is switched on
   def feature?(key)
-    Flip.on? key
+    FeatureFlip.on? key
   end
 
 end

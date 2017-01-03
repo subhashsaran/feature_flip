@@ -1,32 +1,32 @@
 require "spec_helper"
 
-class NullStrategy < Flip::AbstractStrategy
+class NullStrategy < FeatureFlip::AbstractStrategy
   def status(d); nil; end
 end
 
-class TrueStrategy < Flip::AbstractStrategy
+class TrueStrategy < FeatureFlip::AbstractStrategy
   def status(d); true; end
 end
 
-describe Flip::FeatureSet do
+describe FeatureFlip::FeatureSet do
   describe ".instance" do
     it "returns a singleton instance" do
-      expect(Flip::FeatureSet.instance).to equal(Flip::FeatureSet.instance)
+      expect(FeatureFlip::FeatureSet.instance).to equal(FeatureFlip::FeatureSet.instance)
     end
     it "can be reset" do
-      instance_before_reset = Flip::FeatureSet.instance
-      Flip::FeatureSet.reset
-      expect(Flip::FeatureSet.instance).to_not equal(instance_before_reset)
+      instance_before_reset = FeatureFlip::FeatureSet.instance
+      FeatureFlip::FeatureSet.reset
+      expect(FeatureFlip::FeatureSet.instance).to_not equal(instance_before_reset)
     end
     it "can be reset multiple times without error" do
-      2.times { Flip::FeatureSet.reset }
+      2.times { FeatureFlip::FeatureSet.reset }
     end
   end
 
   describe "#on?(:feature)" do
     let(:feature_set) do
-      feature_set = Flip::FeatureSet.new
-      feature_set << Flip::Definition.new(:feature)
+      feature_set = FeatureFlip::FeatureSet.new
+      feature_set << FeatureFlip::Definition.new(:feature)
       strategies.each { |s| feature_set.add_strategy(s) }
       feature_set
     end

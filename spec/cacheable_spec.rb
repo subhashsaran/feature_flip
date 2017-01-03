@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe Flip::Cacheable do
+describe FeatureFlip::Cacheable do
 
   subject(:model_class) do
     class Sample
@@ -8,10 +8,10 @@ describe Flip::Cacheable do
     end
 
     Class.new do
-      extend Flip::Declarable
-      extend Flip::Cacheable
+      extend FeatureFlip::Declarable
+      extend FeatureFlip::Cacheable
 
-      strategy Flip::DeclarationStrategy
+      strategy FeatureFlip::DeclarationStrategy
       default false
 
       feature :one

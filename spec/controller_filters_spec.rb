@@ -1,7 +1,7 @@
 require "spec_helper"
 
 class ControllerWithFlipFilters
-  include Flip::ControllerFilters
+  include FeatureFlip::ControllerFilters
 end
 
 describe ControllerWithFlipFilters do

@@ -1,10 +1,10 @@
 require "spec_helper"
 
-describe Flip::DatabaseStrategy do
+describe FeatureFlip::DatabaseStrategy do
   let(:model_klass) do
     Class.new do
-      extend Flip::Cacheable
-      extend Flip::Declarable
+      extend FeatureFlip::Cacheable
+      extend FeatureFlip::Declarable
       feature :one
       feature :two, description: "Second one."
       feature :three, default: true
@@ -28,7 +28,7 @@ describe Flip::DatabaseStrategy do
     end
   end
 
-  subject(:strategy) { Flip::DatabaseStrategy.new(model_klass) }
+  subject(:strategy) { FeatureFlip::DatabaseStrategy.new(model_klass) }
 
   its(:switchable?) { should be true }
   its(:description) { should be_present }

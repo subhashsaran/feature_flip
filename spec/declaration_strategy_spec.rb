@@ -1,9 +1,9 @@
 require "spec_helper"
 
-describe Flip::DeclarationStrategy do
+describe FeatureFlip::DeclarationStrategy do
   describe "#status" do
-    let(:definition) { Flip::Definition.new(:feature, opts) }
-    subject { Flip::DeclarationStrategy.new.status(definition) }
+    let(:definition) { FeatureFlip::Definition.new(:feature, opts) }
+    subject { FeatureFlip::DeclarationStrategy.new.status(definition) }
 
     context "no default specified" do
       let(:opts) { Hash.new }
