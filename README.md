@@ -17,9 +17,6 @@ There are three layers of strategies per feature:
 
 There is also a configurable system-wide default - !Rails.env.production?` works nicely.
 
-FeatureFlip has a dashboard UI that's easy to understand and use.
-
-![Feature Flipper Dashboard](https://cloud.githubusercontent.com/assets/828243/4934741/a5773568-65a4-11e4-98d8-5e9a32720b2e.png)
 
 Install
 -------
